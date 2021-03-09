@@ -95,7 +95,6 @@ boolean SetPDA_Transitions()
   return T;
 }
 
-
 void FreePointers() 
 {
   for (size_t i = 0; i < DIFF_TRANSITION_COUNT; ++i)

@@ -1,1 +1,56 @@
-<p1>PushDown Automata</p1>
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8"/>
+   </head>
+   <body>
+     <h1>Автомат с магазинной  памятью (PushDown Automata)</h1>
+     <h2>Язык L = {w: n_a(w) + n_b(w) = n_c(w)} для алфавита A = {a,b,c}</h2>
+     <h3>Выражение n_x(w):</h3> 
+     <ol>
+       <li>n - это число вхождений конкретного символа;</li>
+       <li>x - это символ, который считается;</li>
+       <li>w - это цепочка из языка</li>
+     </ol>
+     <h3>Ограничения реализации:</h3> 
+     <ol>
+       <li>Максимальное кол-во символов в магазине - 100;</li>
+       <li>Множественные эпсилон-переходы не поддерживаются;</li>
+       <li>Проверка цепочки только по финальному состоянию</li>
+     </ol>
+     
+     
+      <label>Введите строку:</label>
+      <input type="text" name="string" value="">
+
+
+     <script>
+       var str_object = document.getElementsByName('string')[0];
+       str_object.addEventListener('input',callAdd, false);
+
+       function callAdd() {
+         
+         //Module['arguments'].push('first_param');
+         //Module['arguments'].push(2);
+         const main_js = Module.cwrap('run',
+             'number',
+             ['string', 'number']);
+         
+         var str = document.getElementsByName('string')[0].value;
+         var res = main_js(str, str.length);
+         if (res == 0)
+         {
+          document.getElementById('result').innerHTML = "Строка принадлежит языку L";
+         }
+         else
+         {
+          document.getElementById('result').innerHTML = "Строка НЕ принадлежит языку L";
+         }
+         console.log(`Result: func run() returned ${res}`);
+
+       }
+     </script>
+     <script src="pda-1.js"></script>
+    <h1 id="result">Строка принадлежит языку L</h1>
+   </body>
+ </html>

@@ -3,6 +3,8 @@
 #define dfa_h
 
 #include <stdio.h> 
+#include <string.h>
+#include <assert.h>
 
 #define TOTAL_STATES                   2
 #define FINAL_STATES                   1
@@ -11,12 +13,12 @@
 #define MAGAZINE_CHARCTERS             5
 #define AUTOMATIC_MAGAZINE_MAX_COUNT   100
 
-#define UNKNOWN_SYMBOL_ERR      0
-#define NOT_REACHED_FINAL_STATE 1
-#define REACHED_FINAL_STATE     2
+#define UNKNOWN_SYMBOL_ERR             0
+#define NOT_REACHED_FINAL_STATE        1
+#define REACHED_FINAL_STATE            2
 
-#define EXIT_SUCCESS 0
-#define EXIT_FAILURE 1
+#define EXIT_SUCCESS                   0
+#define EXIT_FAILURE                   1
 
 enum PDA_STATES {q0, q2};   // The set Q
 enum alphabet {a, b, c, e};
@@ -46,5 +48,5 @@ int     PDA(const char current_symbol);
 boolean SetPDA_Transitions();
 void    FreePointers();
 p_int*  CreateIntPointer(int size);
-
+int     run(const char string[], int count);
 #endif // dfa_h
