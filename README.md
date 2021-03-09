@@ -4,7 +4,6 @@
 ### Install dependencies
 
 #### tests
-
 $ sudo apt-get install check
 
 #### js build
@@ -19,7 +18,7 @@ PATH=/path/to/emscipten/compiler:$PATH
 
 #### tests
 
-$ make build 
+$ make build \
 $ make test
 
 #### js build
